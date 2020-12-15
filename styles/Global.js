@@ -13,13 +13,17 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+  a:hover {
+    cursor: pointer;
+  }
 `;
 
 export const theme = {
-  colors: {
-    primary: "rgba(243, 20, 0)"
-  }
-}
+  light: {
+    primary: "rgba(196, 27, 12)",
+    white: "	rgb(248,248,255)"
+  },
+};
 
 export const Container = styled.div`
   max-width: 80%;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -6,7 +6,7 @@ import { Nav, NavBrand, NavItem, NavLogo, NavLink } from "../styles/Navbar";
 import { Container } from "../styles/Global";
 
 export default function Layout({ children }) {
-  const title = "Get Your Grub On"
+  const title = "Get Your Grub On";
   return (
     <>
       <Head>
@@ -16,14 +16,20 @@ export default function Layout({ children }) {
       </Head>
       <Nav>
         <NavBrand>
-          <NavLogo>Grubs</NavLogo>
+          <Link href="/">
+            <NavLogo>Grubs</NavLogo>
+          </Link>
         </NavBrand>
         <NavItem>
-          <NavLink>Login</NavLink>
-          <NavLink>Register</NavLink>
+          <Link href="/login">
+            <NavLink>Login</NavLink>
+          </Link>
+          <Link href="/register">
+            <NavLink>Register</NavLink>
+          </Link>
         </NavItem>
       </Nav>
       <Container>{children}</Container>
     </>
-  )
+  );
 }

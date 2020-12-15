@@ -3,13 +3,17 @@ import styled from "styled-components";
 export const Nav = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 2em;
   height: 4.5em;
-  background: blue;
+  background: ${({ theme }) => theme.light.primary};
+  color: ${({ theme }) => theme.light.white}
 `
 
 export const NavBrand = styled.div`
   margin-left: 2em;
+  font-size: 1.5em;
+  letter-spacing: .25rem;
 `
 
 export const NavItem = styled.div`
@@ -17,11 +21,14 @@ export const NavItem = styled.div`
   margin: 0 2em;
 `
 
-export const NavLogo = styled.div`
+export const NavLogo = styled.a`
 
 `
 
-export const NavLink = styled.div`
+export const NavLink = styled.a`
   margin: 0 2em;
-  color: ${({ theme }) => theme.colors.primary}
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: underline;
+  }
 `
