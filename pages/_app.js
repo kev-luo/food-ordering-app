@@ -1,15 +1,18 @@
 import React from 'react'
+import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle } from "../styles/Global";
+import { GlobalStyle, theme } from "../styles/Global";
 import Layout from "../components/layout";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Layout>
-        <Component { ...pageProps} />
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component { ...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   )
 }

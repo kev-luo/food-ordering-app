@@ -15,6 +15,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const theme = {
+  colors: {
+    primary: "rgba(243, 20, 0)"
+  }
+}
+
 export const Container = styled.div`
   max-width: 80%;
   margin: 0 auto;

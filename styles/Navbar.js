@@ -23,4 +23,5 @@ export const NavLogo = styled.div`
 
 export const NavLink = styled.div`
   margin: 0 2em;
+  color: ${({ theme }) => theme.colors.primary}
 `
