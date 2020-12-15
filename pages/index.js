@@ -15,7 +15,6 @@ export default function Home() {
 
   const handleChange = (e) => {
     const { value } = e.target;
-    console.log(value);
     setQuery(value);
   }
 
@@ -29,7 +28,7 @@ export default function Home() {
         <Search type="text" value={query} onChange={handleChange}/>
         <SearchBtn type="submit">Search</SearchBtn>
       </form>
-      {data && <RestaurantList restaurants={data?.restaurants} />}
+      {data && <RestaurantList restaurants={data?.restaurants} query={query}/>}
     </>
   );
 }
