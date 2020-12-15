@@ -14,7 +14,7 @@ export const Search = styled.input`
 
 export const SearchBtn = styled.button`
   width: 7rem;
-  padding: .5rem;
+  height: 2rem;
   margin-left: 1rem;
   text-transform: uppercase;
   letter-spacing: .1em;

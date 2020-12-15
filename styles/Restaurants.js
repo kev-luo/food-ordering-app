@@ -51,7 +51,8 @@ export const Button = styled.a`
   color: ${({ theme }) => theme.light.black};
   text-transform: uppercase;
   letter-spacing: .1em;
+  transition: all 100ms linear;
   &:hover {
-
+    background: ${({ theme }) => theme.light.green2};
   }
 `;
