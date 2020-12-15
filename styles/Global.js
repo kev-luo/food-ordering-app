@@ -20,13 +20,17 @@ export const GlobalStyle = createGlobalStyle`
 
 export const theme = {
   light: {
-    primary: "rgba(196, 27, 12)",
-    white: "	rgb(248,248,255)"
+    yellow: "#F2CE16",
+    pink: "#F28095",
+    orange: "#F2BB16",
+    green: "#B4D966",
+    white: "#F2F2F2",
+    black: "#000",
   },
 };
 
 export const Container = styled.div`
   max-width: 80%;
   margin: 0 auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;

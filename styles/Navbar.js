@@ -6,8 +6,8 @@ export const Nav = styled.header`
   align-items: center;
   margin-bottom: 2em;
   height: 4.5em;
-  background: ${({ theme }) => theme.light.primary};
-  color: ${({ theme }) => theme.light.white}
+  background: ${({ theme }) => theme.light.orange};
+  color: ${({ theme }) => theme.light.black}
 `
 
 export const NavBrand = styled.div`

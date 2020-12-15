@@ -8,9 +8,6 @@ export default function Home() {
   const { loading, error, data } = useQuery(FETCH_RESTAURANTS_QUERY);
   return (
     <>
-    <h2>
-      Grubs
-    </h2>
     {data && <RestaurantList restaurants={data?.restaurants}/>}
     </>
   )
