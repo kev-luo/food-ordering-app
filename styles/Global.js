@@ -24,6 +24,7 @@ export const theme = {
     pink: "#F28095",
     orange: "#F2BB16",
     green: "#B4D966",
+    green2: "#BFE66C",
     white: "#F2F2F2",
     black: "#000",
   },
