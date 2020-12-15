@@ -2,9 +2,10 @@ import React from 'react'
 import { ThemeProvider } from "styled-components";
 
 import { GlobalStyle, theme } from "../styles/Global";
+import withApollo from "../lib/apollo";
 import Layout from "../components/layout";
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
@@ -16,3 +17,5 @@ export default function MyApp({ Component, pageProps }) {
     </>
   )
 }
+
+export default withApollo()(MyApp);
