@@ -1,9 +1,15 @@
 import React from 'react'
 
-export default function RestaurantList() {
+import { ListContainer } from "../styles/Restaurants";
+import Restaurant from "./restaurant";
+
+export default function RestaurantList({restaurants}) {
+
   return (
-    <div>
-      
-    </div>
+    <ListContainer>
+      {restaurants.map(restaurant => (
+        <Restaurant key={restaurant.id} restaurant={restaurant}/>
+      ))}
+    </ListContainer>
   )
 }
