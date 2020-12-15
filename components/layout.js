@@ -2,7 +2,7 @@ import React from 'react'
 import Head from "next/head";
 import Link from "next/link";
 
-import { Nav, NavItem, NavLogo, NavLink } from "../styles/Navbar";
+import { Nav, NavBrand, NavItem, NavLogo, NavLink } from "../styles/Navbar";
 import { Container } from "../styles/Global";
 
 export default function Layout({ children }) {
@@ -15,9 +15,9 @@ export default function Layout({ children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Nav>
-        <NavItem>
+        <NavBrand>
           <NavLogo>Grubs</NavLogo>
-        </NavItem>
+        </NavBrand>
         <NavItem>
           <NavLink>Login</NavLink>
           <NavLink>Register</NavLink>
