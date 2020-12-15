@@ -4,7 +4,7 @@ export const Nav = styled.header`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2em;
-  height: 5em;
+  height: 4.5em;
   background: blue;
 `
 
