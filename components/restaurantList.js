@@ -14,7 +14,7 @@ export default function RestaurantList({ restaurants, query }) {
         "No results found"
       ) : (
         searchQuery.map((restaurant) => (
-          <Restaurant key={restaurant.id} restaurant={restaurant} />
+          <Restaurant key={restaurant.id} data={restaurant} />
         ))
       )}
     </ListContainer>

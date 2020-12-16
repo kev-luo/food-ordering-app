@@ -10,8 +10,8 @@ import {
   Button,
 } from "../styles/Restaurants";
 
-export default function Restaurant({ restaurant }) {
-  const { id, name, description, image } = restaurant;
+export default function Restaurant({ data }) {
+  const { id, name, description, image } = data;
   return (
     <Card>
       <Image image={`${process.env.NEXT_PUBLIC_API_URL_IMG}${image.url}`} />
@@ -19,7 +19,7 @@ export default function Restaurant({ restaurant }) {
         <Name>{name}</Name>
         <Description>{description}</Description>
       </Info>
-      <Link href={`/restaurant?id=${id}`} passHref>
+      <Link as={`/restaurant/${id}`} href={`/restaurant?id=${id}`} passHref>
         <Button>View</Button>
       </Link>
     </Card>

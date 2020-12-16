@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
+import DishList from "../components/dishList";
 import { FETCH_DISHES_QUERY } from "../utils/graphql";
 
 export default function Restaurant() {
@@ -9,11 +10,14 @@ export default function Restaurant() {
   const { loading, data } = useQuery(FETCH_DISHES_QUERY, { variables: {
     id: router.query.id
   }})
-  if(data) console.log(data);
-  
+
+  if (loading) {
+    return <p>Loading dishes</p>
+  }
+
   return (
-    <div>
-      
-    </div>
+    <>
+      {data && <DishList dishes={data?.restaurant?.dishes}/>}
+    </>
   )
 }
