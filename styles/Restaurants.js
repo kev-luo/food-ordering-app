@@ -78,6 +78,8 @@ export const DishesContainer = styled(ListContainer)`
   flex: 4;
 `;
 
+// cart component
+// ===============================================================
 export const CartContainer = styled.div`
   flex: 1;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
@@ -85,7 +87,7 @@ export const CartContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fill, 3rem);
   grid-row-gap: 0;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
 `;
 
 export const CartTitle = styled.h3`
@@ -94,6 +96,8 @@ export const CartTitle = styled.h3`
   place-self: center;
 `;
 
+// single dish in card
+// ===============================================================
 export const DishRow = styled.div`
   grid-column: 1/-1;
   display: grid;
@@ -120,14 +124,24 @@ export const DishTotal = styled.div`
   justify-self: center;
 `;
 
+
+// cart footer
+// ===============================================================
 export const CartFooterTitle = styled.div`
   grid-column: 1/1;
-  grid-row: -1/-1;
+  grid-row: -3/-3;
   justify-self: start;
 `;
 
 export const CartFooterTotal = styled.div`
   grid-column: 2/2;
-  grid-row: -1/-1;
+  grid-row: -3/-3;
   justify-self: center;
 `;
+
+export const OrderBtn = styled(Button)`
+  grid-column: 2/2;
+  grid-row: -2/-2;
+  justify-self: center;
+  position: static;
+`

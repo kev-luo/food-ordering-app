@@ -1,10 +1,12 @@
 import React from "react";
+import Link from "next/link";
 
 import {
   CartContainer,
   CartTitle,
   CartFooterTitle,
   CartFooterTotal,
+  OrderBtn
 } from "../../styles/Restaurants";
 import CartItem from "./cartItem";
 import { useCartContext } from "../../context/CartContext";
@@ -33,6 +35,9 @@ export default function Cart() {
       })}
       <CartFooterTitle>Total</CartFooterTitle>
       {totalOrder()}
+      <Link href="/checkout" passHref>
+        <OrderBtn>Order</OrderBtn>
+      </Link>
     </CartContainer>
   );
 }
