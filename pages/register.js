@@ -2,13 +2,7 @@ import React, { useState } from "react";
 
 import { useAuthContext } from "../context/AuthContext";
 import { register } from "../lib/auth";
-import {
-  Form,
-  InputContainer,
-  Label,
-  Input,
-  Button,
-} from "../styles/Form";
+import { Form, InputContainer, Label, Input, Button } from "../styles/Form";
 import { Container } from "../styles/Global";
 
 export default function Register() {
@@ -24,21 +18,23 @@ export default function Register() {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
-    }) 
-  }
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
     const { username, email, password } = formData;
-    const authenticated = await register( username, email, password);
+    const authenticated = await register(username, email, password);
     setUser(authenticated.user);
-
-  }
+    setLoading(false);
+  };
 
   return (
     <Container>
       Register
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <InputContainer>
           <Label>Username</Label>
           <Input
@@ -66,7 +62,9 @@ export default function Register() {
             onChange={handleChange}
           />
         </InputContainer>
-        <Button type="submit" onClick={handleSubmit}>Sign Up</Button>
+        <Button type="submit">
+          {loading ? "Loading..." : "Sign Up"}
+        </Button>
       </Form>
     </Container>
   );

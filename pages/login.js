@@ -28,9 +28,12 @@ export default function Login() {
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true)
     const { identifier, password } = formData;
     const authenticated = await login( identifier, password);
     setUser(authenticated.user);
+    setLoading(false);
   }
 
   return (
@@ -38,11 +41,11 @@ export default function Login() {
       Login
       <Form>
         <InputContainer>
-          <Label>Username</Label>
+          <Label>Email</Label>
           <Input
             type="text"
-            name="username"
-            value={formData.username}
+            name="identifier"
+            value={formData.identifier}
             onChange={handleChange}
           />
         </InputContainer>
@@ -55,7 +58,7 @@ export default function Login() {
             onChange={handleChange}
           />
         </InputContainer>
-        <Button type="submit" onClick={handleSubmit}>Login</Button>
+        <Button type="submit" onClick={handleSubmit}>{loading ? "Loading..." : "Login"}</Button>
       </Form>
     </Container>
   );
