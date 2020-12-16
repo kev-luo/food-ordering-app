@@ -12,7 +12,7 @@ export const useOrders = (user) => {
         try {
           setLoading(true);
           const token = Cookies.get("token");
-          const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/orders}`, {
+          const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/orders`, {
             headers: {
               "Authorization": `Bearer ${token}`
             }
