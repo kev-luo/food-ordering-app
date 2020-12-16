@@ -22,7 +22,6 @@ export default function Cart() {
       </CartFooterTotal>
     )
   }
-  totalOrder();
 
   return (
     <CartContainer>
