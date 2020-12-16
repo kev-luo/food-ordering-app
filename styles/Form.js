@@ -19,10 +19,17 @@ export const InputContainer = styled.div`
 export const Label = styled.label`
   align-self: flex-start;
   font-size: .8rem;
+  margin-bottom: .5rem;
 `;
 
 export const Input = styled.input`
   width: 100%;
+  box-shadow:  0px 1px 3px rgba(50, 50, 93, 0.15);
+  border: none;
+  padding: 10px 14px;
+  &:focus {
+    outline: 1.5px solid ${({ theme }) => theme.light.orange};
+  }
 `;
 
 export const Button = styled.button`
