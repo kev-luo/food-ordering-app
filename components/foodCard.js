@@ -11,7 +11,6 @@ import {
 } from "../styles/Restaurants";
 import { useCartContext } from "../context/CartContext";
 
-
 export default function FoodCard({ data }) {
   const { id, name, description, image, price } = data;
   const { cart, addToCart } = useCartContext();
@@ -20,13 +19,14 @@ export default function FoodCard({ data }) {
     <Card>
       <Image image={`${process.env.NEXT_PUBLIC_API_URL}${image.url}`} />
       <Info>
-        <Name>{name}{price && ` ($${price})`}</Name>
+        <Name>
+          {name}
+          {price && ` ($${price})`}
+        </Name>
         <Description>{description}</Description>
       </Info>
       {price ? (
-        <Link href="/" passHref>
-          <Button onClick={() => addToCart(data)}>Add</Button>
-        </Link>
+        <Button onClick={() => addToCart(data)}>Add</Button>
       ) : (
         <Link as={`/restaurant/${id}`} href={`/restaurant?id=${id}`} passHref>
           <Button>View</Button>

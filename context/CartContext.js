@@ -10,13 +10,6 @@ const CartContext = React.createContext(initialState);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(initialState);
 
-  const item = {
-    id: "2poijp2o3j",
-    name: "curry noodle soup",
-    price: 11,
-    quantity: 1,
-  };
-
   const addToCart = (item) => {
     const itemExists = cart.items.find((cartItem) => {
       return cartItem.id === item.id;

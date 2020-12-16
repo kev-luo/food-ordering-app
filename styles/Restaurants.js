@@ -75,7 +75,7 @@ export const PageContainer = styled.div`
 `;
 
 export const DishesContainer = styled(ListContainer)`
-  flex: 3;
+  flex: 4;
 `;
 
 export const CartContainer = styled.div`

@@ -8,13 +8,13 @@ import {
   DishTotal,
 } from "../../styles/Restaurants";
 
-export default function CartItem() {
+export default function CartItem({dish}) {
   return (
     <DishRow>
-      <DishName>Curry Noodle Soup</DishName>
-      <DishQty>1</DishQty>
-      <DishPrice>$12.99</DishPrice>
-      <DishTotal>$12.99</DishTotal>
+      <DishName>{dish.name}</DishName>
+      <DishQty>{dish.quantity}</DishQty>
+      <DishPrice>${dish.price}</DishPrice>
+      <DishTotal>${Number(dish.quantity) * Number(dish.price)}</DishTotal>
     </DishRow>
   );
 }
