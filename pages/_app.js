@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from "../styles/Global";
 import withApollo from "../lib/apollo";
 import { AuthProvider } from "../context/AuthContext";
+import { CartProvider } from "../context/CartContext";
 import Layout from "../components/layout";
 
 function MyApp({ Component, pageProps }) {
@@ -12,9 +13,11 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <CartProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </CartProvider>
         </AuthProvider>
       </ThemeProvider>
     </>
