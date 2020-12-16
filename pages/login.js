@@ -39,11 +39,11 @@ export default function Login() {
   return (
     <Container>
       Login
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <InputContainer>
           <Label>Email</Label>
           <Input
-            type="text"
+            type="email"
             name="identifier"
             value={formData.identifier}
             onChange={handleChange}
@@ -58,7 +58,7 @@ export default function Login() {
             onChange={handleChange}
           />
         </InputContainer>
-        <Button type="submit" onClick={handleSubmit}>{loading ? "Loading..." : "Login"}</Button>
+        <Button type="submit">{loading ? "Loading..." : "Login"}</Button>
       </Form>
     </Container>
   );
