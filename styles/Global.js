@@ -25,6 +25,7 @@ export const theme = {
   light: {
     yellow: "#F2CE16",
     pink: "#F28095",
+    pink2: "#F4CBD2",
     orange: "#F2BB16",
     green: "#B4D966",
     green2: "#BFE66C",
@@ -38,3 +39,4 @@ export const Container = styled.div`
   margin: 0 auto;
   /* border: 1px solid black; */
 `;
+
