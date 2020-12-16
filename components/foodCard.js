@@ -14,7 +14,7 @@ export default function FoodCard({ data }) {
   const { id, name, description, image, price } = data;
   return (
     <Card>
-      <Image image={`${process.env.NEXT_PUBLIC_API_URL_IMG}${image.url}`} />
+      <Image image={`${process.env.NEXT_PUBLIC_API_URL}${image.url}`} />
       <Info>
         <Name>{name}</Name>
         <Description>{description}</Description>
