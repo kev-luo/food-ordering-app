@@ -1,25 +1,35 @@
 import React, { useState } from "react";
 
-import { CheckoutContainer, FormContainer, FormCheckout } from "../../styles/Checkout";
-import { InputContainer, Label, Input } from "../../styles/Form";
+import {
+  CheckoutContainer,
+  FormContainer,
+  FormCheckout,
+} from "../../styles/Checkout";
+import { InputContainer, Label, Input, Button } from "../../styles/Form";
 import Cart from "../cart";
+import CheckoutCard from "./checkoutCard";
 
 export default function CheckoutForm() {
   const [formData, setFormData] = useState({ address: "", city: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
     setFormData({
       ...formData,
       [name]: value,
-    })
-  }
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <CheckoutContainer>
       <Cart />
       <FormContainer>
-        <FormCheckout>
+        <FormCheckout onSubmit={handleSubmit}>
           <InputContainer>
             <Label>Address</Label>
             <Input
@@ -38,6 +48,8 @@ export default function CheckoutForm() {
               onChange={handleChange}
             />
           </InputContainer>
+          <CheckoutCard />
+          <Button type="submit">{loading ? "Loading..." : "Checkout"}</Button>
         </FormCheckout>
       </FormContainer>
     </CheckoutContainer>
