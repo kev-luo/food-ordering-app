@@ -14,11 +14,12 @@ import CheckoutCard from "./checkoutCard";
 import { useCartContext } from "../../context/CartContext";
 
 export default function CheckoutForm() {
-  const [formData, setFormData] = useState({ address: "", city: "" });
+  const initialState = { address: "", city: "" }
+  const [formData, setFormData] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const { cart } = useCartContext();
+  const { cart, clearCart } = useCartContext();
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -49,6 +50,8 @@ export default function CheckoutForm() {
       console.log(response);
     }
     setLoading(false);
+    setFormData(initialState);
+    clearCart();
   };
 
   return (

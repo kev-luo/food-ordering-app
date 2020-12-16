@@ -25,7 +25,7 @@ export default function Cart() {
         )
       })}
       <CartFooterTitle>Total</CartFooterTitle>
-      <CartFooterTotal>${cart.total}</CartFooterTotal>
+      <CartFooterTotal>${Number(cart.total).toFixed(2)}</CartFooterTotal>
       {pathname === "/restaurant" && (
         <Link href="/checkout" passHref>
           <OrderBtn>Order</OrderBtn>

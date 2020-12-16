@@ -21,7 +21,7 @@ export default function FoodCard({ data }) {
       <Info>
         <Name>
           {name}
-          {price && ` ($${price})`}
+          {price && ` ($${Number(price).toFixed(2)})`}
         </Name>
         <Description>{description}</Description>
       </Info>
