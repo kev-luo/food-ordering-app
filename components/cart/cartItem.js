@@ -13,8 +13,8 @@ export default function CartItem() {
     <DishRow>
       <DishName>Curry Noodle Soup</DishName>
       <DishQty>1</DishQty>
-      <DishPrice>12.99</DishPrice>
-      <DishTotal>12.99</DishTotal>
+      <DishPrice>$12.99</DishPrice>
+      <DishTotal>$12.99</DishTotal>
     </DishRow>
   );
 }

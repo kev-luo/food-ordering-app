@@ -85,6 +85,7 @@ export const CartContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fill, 3rem);
   grid-row-gap: 0;
+  padding: 1rem 1rem;
 `;
 
 export const CartTitle = styled.h3`

@@ -13,6 +13,7 @@ export default function Cart() {
     <CartContainer>
       <CartTitle>Your order:</CartTitle>
       <CartItem />
+      <CartItem />
       <CartFooterTitle>Total</CartFooterTitle>
       <CartFooterTotal>$$$</CartFooterTotal>
     </CartContainer>
