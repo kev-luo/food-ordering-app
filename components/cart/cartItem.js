@@ -13,8 +13,8 @@ export default function CartItem({dish}) {
     <DishRow>
       <DishName>{dish.name}</DishName>
       <DishQty>{dish.quantity}</DishQty>
-      <DishPrice>${dish.price}</DishPrice>
-      <DishTotal>${Number(dish.quantity) * Number(dish.price)}</DishTotal>
+      <DishPrice>${(Number(dish.price)).toFixed(2)}</DishPrice>
+      <DishTotal>${(Number(dish.quantity) * Number(dish.price)).toFixed(2)}</DishTotal>
     </DishRow>
   );
 }

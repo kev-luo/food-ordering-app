@@ -2,15 +2,16 @@ import React from "react";
 
 import { useAuthContext } from "../context/AuthContext";
 import { useOrders } from "../utils/useOrders";
+import { Container } from "../styles/Global";
+import { Table } from "../styles/Account";
 
 export default function Account() {
   const { user } = useAuthContext();
   const { orders, loading } = useOrders(user);
-  console.log(orders);
   return (
-    <div>
+    <Container>
       <h2>Order History</h2>
-      <table>
+      <Table>
         <tr>
           <th>Order Date</th>
           <th>Amount Paid</th>
@@ -31,7 +32,7 @@ export default function Account() {
             </tr>
           );
         })}
-      </table>
-    </div>
+      </Table>
+    </Container>
   );
 }
