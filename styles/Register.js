@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const RegisterForm = styled.form`
-  width: 80%;
+  width: 40%;
   margin: 0 auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   position: relative;
   padding: 1rem;
   padding-bottom: 2rem;
@@ -16,10 +16,13 @@ export const InputContainer = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Label = styled.label``;
+export const Label = styled.label`
+  align-self: flex-start;
+  font-size: .8rem;
+`;
 
 export const Input = styled.input`
-  width: 50%;
+  width: 100%;
 `;
 
 export const Button = styled.button`
@@ -28,6 +31,8 @@ export const Button = styled.button`
   left: 26.3%;
   width: 8rem;
   height: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
   background: ${({ theme }) => theme.light.pink};
   border: none;
   color: ${({ theme }) => theme.light.white};
