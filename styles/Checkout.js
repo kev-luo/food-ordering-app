@@ -21,4 +21,7 @@ export const CardDiv = styled.div`
     box-shadow: 0px 1px 3px rgba(50, 50, 93, 0.15);
     padding: 10px 14px;
   }
+  .StripeElement--focus {
+    outline: 1px solid ${({ theme }) => theme.light.orange}
+  }
 `;

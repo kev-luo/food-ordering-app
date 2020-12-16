@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import Cookies from "js-cookie";
+import fetch from "isomorphic-fetch";
 
 import {
   CheckoutContainer,
@@ -12,6 +15,8 @@ import CheckoutCard from "./checkoutCard";
 export default function CheckoutForm() {
   const [formData, setFormData] = useState({ address: "", city: "" });
   const [loading, setLoading] = useState(false);
+  const stripe = useStripe();
+  const elements = useElements();
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -21,8 +26,10 @@ export default function CheckoutForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const cardElement = elements.getElement(CardElement);
+    console.log(cardElement);
   };
 
   return (
