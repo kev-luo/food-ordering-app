@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import { ListContainer } from "../styles/Restaurants";
+import { PageContainer, DishesContainer } from "../styles/Restaurants";
 import FoodCard from "./foodCard";
+import Cart from "./cart";
 
-export default function DishList({dishes}) {
+export default function DishList({ dishes }) {
   return (
-    <ListContainer>
-      {dishes.map(dish => (
-        <FoodCard key={dish.id} data={dish} />
-      ))}
-    </ListContainer>
-  )
+    <PageContainer>
+      <DishesContainer>
+        {dishes.map((dish) => (
+          <FoodCard key={dish.id} data={dish} />
+        ))}
+      </DishesContainer>
+      <Cart />
+    </PageContainer>
+  );
 }

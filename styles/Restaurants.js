@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+// restaurants page
+// ===============================================================
 export const ListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -62,6 +64,22 @@ export const Button = styled.a`
   }
 `;
 
+
+// dishes page
+// ===============================================================
 export const SingleRestaurant = styled.h2`
   text-align: center;
+`
+
+export const PageContainer = styled.div`
+  display: flex;
+`
+
+export const DishesContainer = styled(ListContainer)`
+  flex: 3;
+`
+
+export const CartContainer = styled.div`
+  flex: 1;
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,.5);
 `
