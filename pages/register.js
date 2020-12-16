@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 
 import { useAuthContext } from "../context/AuthContext";
+import { register } from "../lib/auth";
 import {
-  RegisterForm,
+  Form,
   InputContainer,
   Label,
   Input,
   Button,
-} from "../styles/Register";
+} from "../styles/Form";
 import { Container } from "../styles/Global";
 
-export default function register() {
+export default function Register() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -27,10 +28,17 @@ export default function register() {
     }) 
   }
 
+  const handleSubmit = async (e) => {
+    const { username, email, password } = formData;
+    const authenticated = await register( username, email, password);
+    setUser(authenticated.user);
+
+  }
+
   return (
     <Container>
       Register
-      <RegisterForm>
+      <Form>
         <InputContainer>
           <Label>Username</Label>
           <Input
@@ -58,8 +66,8 @@ export default function register() {
             onChange={handleChange}
           />
         </InputContainer>
-        <Button>Sign Up</Button>
-      </RegisterForm>
+        <Button type="submit" onClick={handleSubmit}>Sign Up</Button>
+      </Form>
     </Container>
   );
 }

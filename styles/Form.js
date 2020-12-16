@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const RegisterForm = styled.form`
+export const Form = styled.form`
   width: 40%;
   margin: 0 auto;
   /* border: 1px solid black; */
@@ -28,7 +28,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   position: absolute;
   bottom: 0;
-  left: 26.3%;
+  left: 1rem;
   width: 8rem;
   height: 1.5rem;
   text-transform: uppercase;
