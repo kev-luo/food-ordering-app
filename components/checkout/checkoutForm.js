@@ -11,12 +11,14 @@ import {
 import { InputContainer, Label, Input, Button } from "../../styles/Form";
 import Cart from "../cart";
 import CheckoutCard from "./checkoutCard";
+import { useCartContext } from "../../context/CartContext";
 
 export default function CheckoutForm() {
   const [formData, setFormData] = useState({ address: "", city: "" });
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const { cart } = useCartContext();
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -28,10 +30,25 @@ export default function CheckoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const cardElement = elements.getElement(CardElement);
     const token = await stripe.createToken(cardElement);
     const userToken = Cookies.get("token");
-    console.log(userToken);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`, {
+      method: "POST",
+      headers: userToken && { Authorization: `Bearer ${userToken}`},
+      body: JSON.stringify({
+        amount: Number(Math.round(cart.total + "e2") + "e-2"),
+        dishes: cart.items,
+        address: formData.address,
+        city: formData.city,
+        token: token.token.id,
+      })
+    })
+    if(!response.ok) {
+      console.log(response);
+    }
+    setLoading(false);
   };
 
   return (
