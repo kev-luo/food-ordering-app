@@ -32,7 +32,7 @@ export default function Layout({ children }) {
         <NavItem>
           {user ? (
             <>
-            <Link href="/" passHref>
+            <Link href="/account" passHref>
               <NavLink>{user.username}</NavLink>
             </Link>
             <Link href="/" passHref>
