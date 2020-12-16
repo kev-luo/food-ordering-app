@@ -88,11 +88,13 @@ export const CartContainer = styled.div`
   grid-template-rows: repeat(auto-fill, 3rem);
   grid-row-gap: 0;
   padding: 1rem 1rem 0rem 1rem;
+  max-height: 20rem;
+  max-width: 50%;
 `;
 
 export const CartTitle = styled.h3`
   grid-column: 1/-1;
-  grid-row: 1/2;
+  grid-row: 1/1;
   place-self: center;
 `;
 
@@ -129,19 +131,18 @@ export const DishTotal = styled.div`
 // ===============================================================
 export const CartFooterTitle = styled.div`
   grid-column: 1/1;
-  grid-row: -3/-3;
   justify-self: start;
 `;
 
 export const CartFooterTotal = styled.div`
   grid-column: 2/2;
-  grid-row: -3/-3;
-  justify-self: center;
+  justify-self: end;
+  margin-right: 5%;
 `;
 
 export const OrderBtn = styled(Button)`
   grid-column: 2/2;
-  grid-row: -2/-2;
-  justify-self: center;
+  justify-self: end;
+  margin-right: 5%;
   position: static;
 `

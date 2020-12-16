@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import {
   CartContainer,
@@ -13,6 +14,7 @@ import { useCartContext } from "../../context/CartContext";
 
 export default function Cart() {
   const { cart } = useCartContext();
+  const { pathname } = useRouter();
 
   const totalOrder = () => {
     const totalCost = cart.items.reduce((a,b) => {
@@ -35,9 +37,11 @@ export default function Cart() {
       })}
       <CartFooterTitle>Total</CartFooterTitle>
       {totalOrder()}
-      <Link href="/checkout" passHref>
-        <OrderBtn>Order</OrderBtn>
-      </Link>
+      {pathname === "/restaurant" && (
+        <Link href="/checkout" passHref>
+          <OrderBtn>Order</OrderBtn>
+        </Link>
+      )}
     </CartContainer>
   );
 }
