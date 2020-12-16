@@ -20,7 +20,7 @@ export default function FoodCard({ data }) {
     <Card>
       <Image image={`${process.env.NEXT_PUBLIC_API_URL}${image.url}`} />
       <Info>
-        <Name>{name}{` ($${price})`}</Name>
+        <Name>{name}{price && ` ($${price})`}</Name>
         <Description>{description}</Description>
       </Info>
       {price ? (
