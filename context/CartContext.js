@@ -14,30 +14,43 @@ export const CartProvider = ({ children }) => {
     const itemExists = cart.items.find((cartItem) => {
       return cartItem.id === item.id;
     });
+
+    const total = (arr) => {
+      return arr.reduce((a,b) => {
+        return a + (Number(b.price) * Number(b.quantity))
+      }, 0)
+    }
+    
     if (itemExists) {
       setCart((prevCart) => {
+        const newCart = prevCart.items.map((cartItem) => {
+          if (cartItem.id === item.id) {
+            return {
+              ...cartItem,
+              quantity: cartItem.quantity+=1,
+            };
+          } else {
+            return cartItem;
+          }
+        })
+
         return {
           ...prevCart,
-          items: prevCart.items.map((cartItem) => {
-            if (cartItem.id === item.id) {
-              return {
-                ...cartItem,
-                quantity: cartItem.quantity+=1,
-              };
-            } else {
-              return cartItem;
-            }
-          }),
+          items: newCart,
+          total: total(newCart),
         };
       });
     } else {
       setCart((prevCart) => {
+        const newCart = [
+          ...prevCart.items,
+          { id: item.id, name: item.name, price: item.price, quantity: 1 },
+        ]
+
         return {
           ...prevCart,
-          items: [
-            ...prevCart.items,
-            { id: item.id, name: item.name, price: item.price, quantity: 1 },
-          ],
+          items: newCart,
+          total: total(newCart),
         };
       });
     }

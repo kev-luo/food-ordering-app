@@ -16,17 +16,6 @@ export default function Cart() {
   const { cart } = useCartContext();
   const { pathname } = useRouter();
 
-  const totalOrder = () => {
-    const totalCost = cart.items.reduce((a,b) => {
-      return a + (Number(b.price) * Number(b.quantity))
-    }, 0)
-    return (
-      <CartFooterTotal>
-        ${totalCost}
-      </CartFooterTotal>
-    )
-  }
-
   return (
     <CartContainer>
       <CartTitle>Your order:</CartTitle>
@@ -36,7 +25,7 @@ export default function Cart() {
         )
       })}
       <CartFooterTitle>Total</CartFooterTitle>
-      {totalOrder()}
+      <CartFooterTotal>${cart.total}</CartFooterTotal>
       {pathname === "/restaurant" && (
         <Link href="/checkout" passHref>
           <OrderBtn>Order</OrderBtn>

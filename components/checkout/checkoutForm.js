@@ -29,7 +29,9 @@ export default function CheckoutForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const cardElement = elements.getElement(CardElement);
-    console.log(cardElement);
+    const token = await stripe.createToken(cardElement);
+    const userToken = Cookies.get("token");
+    console.log(userToken);
   };
 
   return (
