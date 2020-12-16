@@ -1,11 +1,20 @@
-import React from 'react'
+import React from "react";
 
-import { CartContainer } from "../../styles/Restaurants";
+import {
+  CartContainer,
+  CartTitle,
+  CartFooterTitle,
+  CartFooterTotal,
+} from "../../styles/Restaurants";
+import CartItem from "./cartItem";
 
 export default function Cart() {
   return (
     <CartContainer>
-      <h3>Your order:</h3>
+      <CartTitle>Your order:</CartTitle>
+      <CartItem />
+      <CartFooterTitle>Total</CartFooterTitle>
+      <CartFooterTotal>$$$</CartFooterTotal>
     </CartContainer>
-  )
+  );
 }
