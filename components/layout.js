@@ -16,15 +16,15 @@ export default function Layout({ children }) {
       </Head>
       <Nav>
         <NavBrand>
-          <Link href="/">
+          <Link href="/" passHref>
             <NavLogo>Grubs</NavLogo>
           </Link>
         </NavBrand>
         <NavItem>
-          <Link href="/login">
+          <Link href="/login" passHref>
             <NavLink>Login</NavLink>
           </Link>
-          <Link href="/register">
+          <Link href="/register" passHref>
             <NavLink>Register</NavLink>
           </Link>
         </NavItem>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import {
   Card,
@@ -10,7 +11,7 @@ import {
 } from "../styles/Restaurants";
 
 export default function Restaurant({ restaurant }) {
-  const { name, description, image } = restaurant;
+  const { id, name, description, image } = restaurant;
   return (
     <Card>
       <Image image={`${process.env.NEXT_PUBLIC_API_URL_IMG}${image.url}`} />
@@ -18,7 +19,9 @@ export default function Restaurant({ restaurant }) {
         <Name>{name}</Name>
         <Description>{description}</Description>
       </Info>
-      <Button>View</Button>
+      <Link href={`/restaurant?id=${id}`} passHref>
+        <Button>View</Button>
+      </Link>
     </Card>
   );
 }

@@ -11,7 +11,7 @@ export default function RestaurantList({ restaurants, query }) {
   return (
     <ListContainer>
       {searchQuery.length === 0 ? (
-        <p>No results found</p>
+        "No results found"
       ) : (
         searchQuery.map((restaurant) => (
           <Restaurant key={restaurant.id} restaurant={restaurant} />
