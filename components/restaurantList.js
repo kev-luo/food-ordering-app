@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ListContainer } from "../styles/Restaurants";
-import Restaurant from "./restaurant";
+import FoodCard from "./foodCard";
 
 export default function RestaurantList({ restaurants, query }) {
   const searchQuery = restaurants.filter((restaurant) => {
@@ -14,7 +14,7 @@ export default function RestaurantList({ restaurants, query }) {
         "No results found"
       ) : (
         searchQuery.map((restaurant) => (
-          <Restaurant key={restaurant.id} data={restaurant} />
+          <FoodCard key={restaurant.id} data={restaurant} />
         ))
       )}
     </ListContainer>

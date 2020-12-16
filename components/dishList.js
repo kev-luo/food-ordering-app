@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { ListContainer } from "../styles/Restaurants";
-import Restaurant from "./restaurant";
+import FoodCard from "./foodCard";
 
 export default function DishList({dishes}) {
   return (
     <ListContainer>
       {dishes.map(dish => (
-        <Restaurant key={dish.id} data={dish} />
+        <FoodCard key={dish.id} data={dish} />
       ))}
     </ListContainer>
   )
