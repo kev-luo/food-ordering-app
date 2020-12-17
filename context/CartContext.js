@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import Cookie from "js-cookie";
 
 const initialState = {
   items: [],
@@ -10,16 +11,16 @@ const CartContext = React.createContext(initialState);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(initialState);
 
+  const total = (arr) => {
+    return arr.reduce((a,b) => {
+      return a + (Number(b.price) * Number(b.quantity))
+    }, 0)
+  }
+
   const addToCart = (item) => {
     const itemExists = cart.items.find((cartItem) => {
       return cartItem.id === item.id;
     });
-
-    const total = (arr) => {
-      return arr.reduce((a,b) => {
-        return a + (Number(b.price) * Number(b.quantity))
-      }, 0)
-    }
     
     if (itemExists) {
       setCart((prevCart) => {
@@ -34,6 +35,8 @@ export const CartProvider = ({ children }) => {
           }
         })
 
+        Cookie.set("cart", newCart);
+
         return {
           ...prevCart,
           items: newCart,
@@ -46,6 +49,8 @@ export const CartProvider = ({ children }) => {
           ...prevCart.items,
           { id: item.id, name: item.name, price: item.price, quantity: 1 },
         ]
+
+        Cookie.set("cart", newCart);
 
         return {
           ...prevCart,
@@ -60,8 +65,23 @@ export const CartProvider = ({ children }) => {
     setCart(initialState);
   }
 
+  const checkCart = () => {
+    const cart = Cookie.get("cart");
+    console.log(cart);
+    if(cart !== undefined) {
+      setCart({
+        items: JSON.parse(cart),
+        total: total(JSON.parse(cart))
+      })
+    }
+  }
+
+  useEffect(() => {
+    checkCart();
+  }, [])
+
   return (
-    <CartContext.Provider value={{ cart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
