@@ -164,3 +164,20 @@ export const OrderBtn = styled(Button)`
   margin-right: 10%;
   position: static;
 `
+
+export const ClearBtn = styled.button`
+  grid-column: 1/1;
+  place-self: start;
+  position: static;
+  width: 5rem;
+  height: 2rem;
+  background: ${({theme}) => theme.light.green};
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+  &:hover {
+    background: ${({ theme }) => theme.light.green2};
+    cursor: pointer;
+  }
+`

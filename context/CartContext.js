@@ -73,7 +73,6 @@ export const CartProvider = ({ children }) => {
           return cartItem
         }
       })
-      console.log(updatedCart);
       const newCart = updatedCart.filter(cartItem => {
         return cartItem.quantity > 0
       })
@@ -91,6 +90,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart(initialState);
+    Cookie.set("cart", initialState.items);
   }
 
   const checkCart = () => {
