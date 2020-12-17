@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Cookies from "js-cookie";
 import fetch from "isomorphic-fetch";
+import { useRouter } from "next/router"
 
 import {
   CheckoutContainer,
@@ -20,6 +21,7 @@ export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
   const { cart, clearCart } = useCartContext();
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -52,6 +54,7 @@ export default function CheckoutForm() {
     setLoading(false);
     setFormData(initialState);
     clearCart();
+    router.push("/");
   };
 
   return (

@@ -6,7 +6,7 @@ export const CheckoutContainer = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  flex: 1;
+  flex: 2;
   margin-left: 1rem;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 `;

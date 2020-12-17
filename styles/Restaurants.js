@@ -81,15 +81,15 @@ export const DishesContainer = styled(ListContainer)`
 // cart component
 // ===============================================================
 export const CartContainer = styled.div`
-  flex: 1;
+  flex: 2;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fill, 3rem);
   grid-row-gap: 0;
   padding: 1rem 1rem 0rem 1rem;
-  max-height: 20rem;
-  max-width: 50%;
+  max-height: 100%;
+  overflow: auto;
 `;
 
 export const CartTitle = styled.h3`
@@ -103,8 +103,8 @@ export const CartTitle = styled.h3`
 export const DishRow = styled.div`
   grid-column: 1/-1;
   display: grid;
-  grid-template-columns: 1fr .5fr .5fr .5fr;
-  grid-template-areas: "dishTitle quantity price dishTotal";
+  grid-template-columns: 1fr .5fr .5fr .5fr .5fr;
+  grid-template-areas: "dishTitle quantity price dishTotal toggle";
 `;
 
 export const DishName = styled.div`
@@ -126,6 +126,24 @@ export const DishTotal = styled.div`
   justify-self: center;
 `;
 
+export const Toggle = styled.div`
+  grid-area: toggle;
+  align-self: start;
+  justify-self: center;
+  display: flex;
+  margin-top: 6px;
+  button:nth-child(even) {
+    margin-left: .2rem;
+  }
+  button {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
 
 // cart footer
 // ===============================================================
@@ -137,12 +155,12 @@ export const CartFooterTitle = styled.div`
 export const CartFooterTotal = styled.div`
   grid-column: 2/2;
   justify-self: end;
-  margin-right: 5%;
+  margin-right: 10%;
 `;
 
 export const OrderBtn = styled(Button)`
   grid-column: 2/2;
   justify-self: end;
-  margin-right: 5%;
+  margin-right: 10%;
   position: static;
 `
