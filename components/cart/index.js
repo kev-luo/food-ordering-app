@@ -12,10 +12,12 @@ import {
 } from "../../styles/Restaurants";
 import CartItem from "./cartItem";
 import { useCartContext } from "../../context/CartContext";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function Cart() {
   const { cart, clearCart } = useCartContext();
   const { pathname } = useRouter();
+  const { user } = useAuthContext();
 
   return (
     <CartContainer>
@@ -28,7 +30,7 @@ export default function Cart() {
       {pathname === "/restaurant" && (
         <>
           <ClearBtn onClick={clearCart}>Clear</ClearBtn>
-          <Link href="/checkout" passHref>
+          <Link href={user ? "/checkout" : "/login"} passHref>
             <OrderBtn>Order</OrderBtn>
           </Link>
         </>
