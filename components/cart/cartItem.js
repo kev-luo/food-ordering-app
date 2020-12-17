@@ -8,8 +8,11 @@ import {
   DishTotal,
   Toggle
 } from "../../styles/Restaurants";
+import { useCartContext } from "../../context/CartContext";
 
 export default function CartItem({dish}) {
+  const { removeFromCart, addToCart } = useCartContext();
+
   return (
     <DishRow>
       <DishName>{dish.name}</DishName>
@@ -17,8 +20,8 @@ export default function CartItem({dish}) {
       <DishPrice>${(Number(dish.price)).toFixed(2)}</DishPrice>
       <DishTotal>${(Number(dish.quantity) * Number(dish.price)).toFixed(2)}</DishTotal>
       <Toggle>
-        <button>-</button>
-        <button>+</button>
+        <button onClick={() => removeFromCart(dish)}>-</button>
+        <button onClick={() => addToCart(dish)}>+</button>
       </Toggle>
     </DishRow>
   );

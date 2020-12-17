@@ -63,17 +63,22 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (item) => {
     setCart(prevCart => {
-      const updatedCart = prevCart.map(cartItem => {
+      const updatedCart = prevCart.items.map(cartItem => {
         if(cartItem.id === item.id) {
           return {
             ...cartItem,
             quantity: cartItem.quantity -= 1,
           }
+        } else {
+          return cartItem
         }
       })
+      console.log(updatedCart);
       const newCart = updatedCart.filter(cartItem => {
         return cartItem.quantity > 0
       })
+
+      Cookie.set("cart", newCart);
 
       return {
         ...prevCart,
