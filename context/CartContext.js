@@ -61,13 +61,35 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const removeFromCart = (item) => {
+    setCart(prevCart => {
+      const updatedCart = prevCart.map(cartItem => {
+        if(cartItem.id === item.id) {
+          return {
+            ...cartItem,
+            quantity: cartItem.quantity -= 1,
+          }
+        }
+      })
+      const newCart = updatedCart.filter(cartItem => {
+        return cartItem.quantity > 0
+      })
+
+      return {
+        ...prevCart,
+        items: newCart,
+        total: total(newCart),
+      }
+
+    })
+  }
+
   const clearCart = () => {
     setCart(initialState);
   }
 
   const checkCart = () => {
     const cart = Cookie.get("cart");
-    console.log(cart);
     if(cart !== undefined) {
       setCart({
         items: JSON.parse(cart),
@@ -81,7 +103,7 @@ export const CartProvider = ({ children }) => {
   }, [])
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
